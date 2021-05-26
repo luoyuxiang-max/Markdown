@@ -7,24 +7,33 @@
     <title>Markdown Editer</title>
     <script src="./vue.js"></script>
     <style>
+        body{
+            margin: 0;
+        }
     .notebook,.input,.preview{
-        border:1px solid red;
         height: 1000px;
+        /*float: left;*/
     }
     .notebook{
+        background-color: salmon;
         width: 20%;
     }
     .input{
+        background-color:seagreen;
         width: 40%;
     }
     .preview{
+        background-color: skyblue;
         width: 40%;
     }
+    .main{
+        display:flex
+        }
     </style>
 </head>
 
 <body>
-    <div id="notebook">
+    <div id="notebook" class="main">
         <div class="notebook">notebook</div>
         <div class="input">input</div>
         <div class="preview">preview</div>

@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Markdown Editer</title>
     <script src="./vue.js"></script>
+    <script src="https://unpkg.com/marked"></script>
     <style>
-        body{
-            margin: 0;
-        }
+    body{
+        margin: 0;
+    }
     .notebook,.input,.preview{
         height: 1000px;
         /*float: left;*/
@@ -19,7 +20,6 @@
         width: 20%;
     }
     .input{
-        background-color:seagreen;
         width: 40%;
     }
     .preview{
@@ -29,19 +29,33 @@
     .main{
         display:flex
         }
+    textarea{
+        width: 100%;
+        height: 100%;
+        background-color: seagreen;
+    }
     </style>
 </head>
 
 <body>
     <div id="notebook" class="main">
-        <div class="notebook">notebook</div>
-        <div class="input">input</div>
-        <div class="preview">preview</div>
+        <div class="notebook"></div>
+        <div class="input">
+            <textarea v-model="content">
+                
+            </textarea>
+        </div>
+        <div class="preview">
+            {{content}}
+        </div>
     </div>
 
     <script>
     var vm=new Vue({
-        el:"#notebook"
+        el:"#notebook",
+data:{
+    content:'test'
+}
     })
     </script>
 </body>

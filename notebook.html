@@ -45,17 +45,21 @@
                 
             </textarea>
         </div>
-        <div class="preview">
-            {{content}}
+        <div class="preview" v-html="markdownPreview">
         </div>
     </div>
 
     <script>
-    var vm=new Vue({
-        el:"#notebook",
-data:{
-    content:'test'
-}
+        var vm=new Vue({
+            el:"#notebook",
+            data:{
+                content:'test'
+                },
+                computed:{
+                    markdownPreview(){
+                        return marked(this.content)
+                    }
+                }
     })
     </script>
 </body>

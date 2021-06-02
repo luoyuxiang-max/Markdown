@@ -41,6 +41,9 @@
     <div id="notebook" class="main">
         <div class="notebook">
             <button v-bind:title="notes.length" v-on:click="addnote">Add Note</button>
+            <div v-for='note in notes'>
+            {{note.title}}
+            </div>
         </div>
         <div class="input">
             <textarea v-model="content">

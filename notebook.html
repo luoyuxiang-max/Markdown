@@ -39,7 +39,9 @@
 
 <body>
     <div id="notebook" class="main">
-        <div class="notebook"></div>
+        <div class="notebook">
+            <button v-bind:title="notes.length" v-on:click="addnote">Add Note</button>
+        </div>
         <div class="input">
             <textarea v-model="content">
                 
@@ -53,7 +55,22 @@
         var vm=new Vue({
             el:"#notebook",
             data:{
-                content:''
+                content:'',
+                notes:[],
+                },
+                methods:{
+                    addnote(){
+                        console.log("add note is called")
+                        const time=Date.now()
+                        const note={
+                            id:String(time),
+                            title:'New note'+(this.notes.length+1),
+                            content:'**Hi**',
+                            created:time,
+                            favorite:false,
+                        }
+                        this.notes.push(note)
+                    }
                 },
                 computed:{
                     markdownPreview(){

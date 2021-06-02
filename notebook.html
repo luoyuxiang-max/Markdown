@@ -53,11 +53,17 @@
         var vm=new Vue({
             el:"#notebook",
             data:{
-                content:'test'
+                content:''
                 },
                 computed:{
                     markdownPreview(){
                         return marked(this.content)
+                    }
+                },
+                watch:{
+                    content (val,oldval){
+                        console.log("new:",val,"old:",oldval)
+                        localStorage.setItem('content',val)
                     }
                 }
     })
